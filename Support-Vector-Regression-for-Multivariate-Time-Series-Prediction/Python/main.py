@@ -1,15 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
-===================================================
-Time Series Prediction by Support Vector Regression
-===================================================
+=================================================================
+Support Vector Regression for Multivariate Time Series Prediction
+=================================================================
 @author: Yuanhui Yang
 @email: yuanhui.yang@u.northwestern.edu
 @reference:
 :http://scikit-learn.org/stable/auto_examples/plot_kernel_ridge_regression.html
 :http://scikit-learn.org/stable/auto_examples/model_selection/grid_search_digits.html
-===================================================
+=================================================================
 """
 print(__doc__)
 
