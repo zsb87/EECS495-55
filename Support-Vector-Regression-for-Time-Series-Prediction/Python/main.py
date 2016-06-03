@@ -44,8 +44,8 @@ data.input_transform_train = data.input_transform[:(data.length_of_sequence - da
 data.output_transform_train =  data.output_transform[:(data.length_of_sequence - data.length_of_unit - data.length_of_prediction_sequence)].ravel()
 data.input_transform_test = data.input_transform[(data.length_of_sequence - data.length_of_unit - data.length_of_prediction_sequence):]
 data.output_test = data.output[(data.length_of_sequence - data.length_of_unit - data.length_of_prediction_sequence):].ravel()
-# svr = GridSearchCV(SVR(kernel='rbf', gamma=0.1), cv=10, param_grid={"kernel": ['linear', 'rbf', 'sigmoid'], "C": np.logspace(-10.0, 10.0, num=40, base=2.0), "gamma": np.logspace(-10.0, 10.0, num=40, base=2.0)})
-svr = GridSearchCV(SVR(kernel='rbf', gamma=0.1), cv=10, param_grid={"C": np.logspace(-10.0, 10.0, num=40, base=2.0), "gamma": np.logspace(-10.0, 10.0, num=40, base=2.0)})
+svr = GridSearchCV(SVR(kernel='rbf', gamma=0.1), cv=10, param_grid={"kernel": ['linear', 'rbf', 'sigmoid'], "C": np.logspace(-10.0, 10.0, num=40, base=2.0), "gamma": np.logspace(-10.0, 10.0, num=40, base=2.0)})
+# svr = GridSearchCV(SVR(kernel='rbf', gamma=0.1), cv=10, param_grid={"C": np.logspace(-10.0, 10.0, num=40, base=2.0), "gamma": np.logspace(-10.0, 10.0, num=40, base=2.0)})
 svr.fit(data.input_transform_train, data.output_transform_train)
 data.output_transform_predict = svr.predict(data.input_transform_test)
 data.output_predict = data.output_scaler.inverse_transform(data.output_transform_predict.reshape((data.length_of_prediction_sequence, 1)))
@@ -54,12 +54,8 @@ plt.figure()
 x = np.arange(0, data.length_of_prediction_sequence)
 y1 = data.output_test
 y2 = data.output_predict
-err = (y2 - y1) / y1
 plt.plot(x, y1, 'go-', linewidth=2.0, label='Real Data')
 plt.plot(x, y2, 'bo-', linewidth=2.0, label='Prediction Data')
-# plt.plot(x, err, 'ro-', linewidth=2.0, label='Error')
 plt.legend()
 plt.grid(True)
 plt.show()
-print y1
-print err
