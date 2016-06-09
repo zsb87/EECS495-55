@@ -128,6 +128,20 @@
 \else\relax
 \fi
 
+% \authorrefmark{} produces a footnote type symbol to indicate author affiliation.
+% When given an argument of 1 to 9, \authorrefmark{} follows the standard LaTeX footnote
+% symbol sequence convention. However, for arguments 10 and above, \authorrefmark{} 
+% reverts to using lower case roman numerals, so it cannot overflow. Do note that you 
+% cannot use \footnotemark[] in place of \authorrefmark{} within \author as the footnote
+% symbols will have been turned off to prevent \thanks from creating footnote marks.
+% \authorrefmark{} produces a symbol that appears to LaTeX as having zero vertical
+% height - this allows for a more compact line packing, but the user must ensure that
+% the interline spacing is large enough to prevent \authorrefmark{} from colliding
+% with the text above.
+\def\authorrefmark#1{\raisebox{0pt}[0pt][0pt]{\textsuperscript{\ensuremath{\ifcase#1\or *\or \dagger\or \ddagger\or%
+    \mathsection\or \mathparagraph\or \|\or **\or \dagger\dagger%
+    \or \ddagger\ddagger \else\textsuperscript{\expandafter\romannumeral#1}\fi}}}}
+
 %% Setting proper dimensions for the HP2500CP printer (height = 36 in)
 %%   Landscape: unprintable areas
 %%   	L: 27.6mm
