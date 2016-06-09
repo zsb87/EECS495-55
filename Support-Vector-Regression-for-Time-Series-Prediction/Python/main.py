@@ -14,7 +14,6 @@ http://scikit-learn.org/stable/auto_examples/model_selection/grid_search_digits.
 print(__doc__)
 
 import numpy as np
-import csv
 from sklearn.svm import SVR
 from sklearn.grid_search import GridSearchCV
 from sklearn import preprocessing
