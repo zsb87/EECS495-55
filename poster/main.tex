@@ -76,13 +76,13 @@ y_i - \omega^T\phi\left(x_i\right) - b & \le & \varepsilon + \zeta_i\\
 \end{equation}
 Its dual is:
 \begin{equation}
-\min\limits_{\alpha, \alpha*}\dfrac{1}{2}\left(\alpha - \alpha^*\right)^T Q\left(\alpha - \alpha^*\right) + \varepsilon e^T \left(\alpha + \alpha*\right) - y ^ T \left(\alpha - \alpha*\right)
+\min\limits_{\alpha, \alpha^*}\dfrac{1}{2}\left(\alpha - \alpha^*\right)^T Q\left(\alpha - \alpha^*\right) + \varepsilon e^T \left(\alpha + \alpha^*\right) - y ^ T \left(\alpha - \alpha^*\right)
 \end{equation}
 subject to:
 \begin{equation}
 \left\{
 \begin{array}{rcl}
-\varepsilon e^T \left(\alpha - \alpha*\right) & = & 0\\
+\varepsilon e^T \left(\alpha - \alpha^*\right) & = & 0\\
 0 \le & \alpha, \alpha^* & \le C\\
 \end{array}
 \right.
